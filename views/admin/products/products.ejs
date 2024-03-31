@@ -1,0 +1,107 @@
+<%- include('../../layout/admin-header') -%>
+
+    <div class="admin-products">
+        <div class="title">المنتجات</div>
+        <button class="add" onclick="AddProduct()"><ion-icon class="icon-small" name="add-outline"></ion-icon></button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">الاسم</th>
+                    <th scope="col">السعر</th>
+                    <th scope="col">حذف</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let i=0; i < data.length; i++) {%>
+                    <tr>
+                        <th scope="row">
+                            <%= i+1%>
+                        </th>
+                        <td>
+                            <%= data[i].name%>
+                        </td>
+                        <td>
+                            <%= data[i].price%>
+                        </td>
+                        <td>
+                            <form action="/admin/product/delete/<%= data[i].id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger"><ion-icon class="icon-small"
+                                    name="trash-outline"></ion-icon></button></td>
+                            </form>
+                    </tr>
+                    <%} %>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function AddProduct() {
+            Swal.fire({
+                icon: 'info',
+                title: 'ضاافة منتج',
+                html: `
+            <form action="/admin/products/add" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="اسم المنتج" required style="
+            width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+        "><br>
+        <input type="numbeer" name="price" placeholder="سعر المنتج" required style="
+        width: 80%;
+margin-left: auto;
+margin-right: auto;
+border: none;
+border-bottom: 1px solid #000000;
+outline: none;
+    "><br>
+    <input type="text" name="proText" placeholder="وصف قصير" required style="
+    width: 80%;
+margin-left: auto;
+margin-right: auto;
+border: none;
+border-bottom: 1px solid #000000;
+outline: none;
+"><br><br>
+<textarea required name="des" cols="15" rows="5" placeholder="وصف المنتج" style="
+width: 80%;
+margin-left: auto;
+margin-right: auto;
+outline: none;
+"></textarea>
+<br>
+<select name="category" required>
+        <% category.forEach(cat => {%>
+            <option><%= cat.name%></option>
+        <%}); %>
+    </select>
+    <br>
+<input type="file" name="image">
+<br>
+<button style="
+border: none;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    background-image: linear-gradient(30deg, #71f7a0, #20d3efc0);
+    color: #ffffff;
+    font-size: 15px;">اضافة</button>
+    </form>
+            `,
+                confirmButtonText: 'الغاء'
+            })
+        }
+    </script>
+
+    <% if(del_suc.length> 0) {%>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'تمت العملية بنجاح',
+                text: 'تم حذف المنتج بنجاح',
+            })
+        </script>
+        <%}%>
+            <%- include('../../layout/footer') -%>

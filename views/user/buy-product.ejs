@@ -1,0 +1,57 @@
+<%- include('../layout/header.ejs') -%>
+    <div class="home">
+        <p class="score">النقاط المتاحة: <%if(user){%>
+                <span>
+                    <%= user.score%>
+                </span>
+                <%} else {%>
+                    0
+                    <%}%>
+        </p>
+
+        <div class="categories">
+            <p class="title">المتجر</p>
+            <% category.forEach(cat=> {%>
+                <div class="category">
+                    <p class="cat-title">
+                        <%= cat.name%>
+                    </p>
+                    <div class="cards">
+                        <% products.forEach(data=> {%>
+                            <% if(data.category==cat.name){%>
+                                <div class="card" onclick="window.location.href='/product/buy/<%= data.id%>'">
+                                    <img src="/upload/images/<%= data.image%>" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= data.name%>
+                                        </h5>
+                                        <p class="card-text">
+                                            <%= data.proText%>
+                                        </p>
+                                        <p class="price">
+                                            <%= data.price%>
+                                        </p>
+                                    </div>
+                                </div>
+                                <%} %>
+                                    <%})%>
+                    </div>
+                </div>
+                <%})%>
+        </div>
+    </div>
+    <script>
+        Swal.fire({
+            icon: 'info',
+            title: 'هل انت متاكد',
+            html: `
+            <p>انت على وشك القيام بعملية شرا <%= product.name%> بكمية نقاط تبلغ <%= product.price%></p>
+<form action="/buy/<%= product.id%>?_method=PUT" method="POST">
+    <button class="btn btn-success">تاكيد الشراء</button>
+</form>
+            `,
+
+            confirmButtonText: 'الغاء'
+        })
+    </script>
+    <%- include('../layout/footer.ejs') -%>

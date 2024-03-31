@@ -1,0 +1,57 @@
+<%- include('../layout/header.ejs') -%>
+    <div class="home">
+        <p class="score">النقاط المتاحة: <%if(user){%>
+                <span>
+                    <%= user.score%>
+                </span>
+                <%} else {%>
+                    0
+                    <%}%>
+        </p>
+
+        <div class="categories">
+            <p class="title">المتجر</p>
+            <% category.forEach(cat => {%>
+                <div class="category">
+                    <p class="cat-title"><%= cat.name%></p>
+                    <div class="cards">
+                    <% products.forEach(data => {%>
+                        <% if(data.category == cat.name){%>
+                                <div class="card" onclick="window.location.href='/product/buy/<%= data.id%>'">
+                                    <img src="/upload/images/<%= data.image%>" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title"><%= data.name%></h5>
+                                      <p class="card-text"><%= data.proText%></p>
+                                      <p class="price"><%= data.price%></p>
+                                    </div>
+                            </div>
+                        <%} %>
+                    <%})%>
+                </div>
+                </div>
+            <%})%>
+        </div>
+    </div>
+
+    <% if(suc.length > 0){%>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'عملية مقبولة',
+                text: 'تمت عملية الشراح بنجاح',
+                confirmButtonText: 'حسنا'
+            })
+        </script>
+        <%} %>
+
+        <% if(err.length > 0){%>
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'عملية مرفوضة',
+                    text: 'لا يوجد نقاط كافية للقيام بعملية الشراء',
+                    confirmButtonText: 'حسنا'
+                })
+            </script>
+            <%} %>
+    <%- include('../layout/footer.ejs') -%>

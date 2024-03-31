@@ -1,0 +1,96 @@
+<%- include('../../layout/admin-header.ejs') -%>
+
+<div class="admin-category">
+    <p class="title">الاقسام</p>
+    <button class="add" onclick="AddCategory()"><ion-icon class="icon-small" name="add-outline"></ion-icon></button>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">القسم</th>
+            <th scope="col">تعديل</th>
+            <th scope="col">حذف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let i = 0; i < category.length; i++) {%>
+            <tr>
+                <th scope="row"><%= i+1%></th>
+                <td><%= category[i].name%></td>
+                <td><button class="btn btn-success" onclick="window.location.href='/admin/category/edit/<%= category[i].id%>'"><ion-icon class="icon-small" name="pencil-outline"></ion-icon></button></td>
+                <td><button onclick="window.location.href='/admin/category/delete/<%= category[i].id%>'" class="btn btn-danger"><ion-icon class="icon-small" name="trash-outline"></ion-icon></button></td>
+              </tr>
+        <%} %>
+        </tbody>
+      </table>
+</div>
+<script>
+    function AddCategory(){
+        Swal.fire({
+            icon: 'info',
+            html: `
+            <form action="/admin/category/add" method="POST">
+    <input type="text" name="name" required style="
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;" placeholder="اسم القسم">
+    <br><br>
+    <button style="
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    background-image: linear-gradient(30deg, #71f7a0, #20d3efc0);
+    color: #ffffff;
+    font-size: 15px;">اضافة القسم</button>
+</form>
+            `,
+            confirmButtonText: 'الغاء'
+        })
+    }
+</script>
+
+<% if(err.length > 0) {%>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'القسم مكرر',
+            text: 'يوجد قسم بهذا الاسم قد تمت اضافته مسبقا'
+        })
+    </script>
+<%} %>
+
+<% if(suc.length > 0) {%>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'تم حذف القسم بنجاح',
+            confirmButtonText: 'حسنا'
+        })
+    </script>
+<%} %>
+
+<% if(edit_suc.length > 0) {%>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'تم تعديل اسم القسم بنجاح',
+            confirmButtonText: 'حسنا'
+        })
+    </script>
+<%} %>
+
+<% if(edit_err.length > 0) {%>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'القسم مكرر',
+            text: 'يوجد قسم بهذا الاسم قد تمت اضافته مسبقا'
+        })
+    </script>
+<%} %>
+
+<%- include('../../layout/footer.ejs') -%>

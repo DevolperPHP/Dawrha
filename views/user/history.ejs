@@ -1,0 +1,28 @@
+<%- include ('../layout/header')-%>
+    <div class="history">
+        <p class="title">سحل المشتريات</p>
+        <% if(data.length> 0){%>
+            <% for (let i=0; i < data.length; i++) {%>
+                <div class="history-card">
+                    <div>
+                        <img src="/upload/images/<%= data[i].image%>" alt="">
+                    </div>
+                    <div class="info">
+                        <p>
+                            <%= data[i].name%>
+                        </p>
+                        <p>
+                            <%= data[i].proText%>
+                        </p>
+                        <p>
+                            <%= dates[i]%>
+                        </p>
+                    </div>
+                </div>
+
+                <%} %>
+                    <%} else {%>
+                        <h3 style="text-align: center;">لا يوجد مشتريات سابقة</h3>
+                    <%} %>
+    </div>
+    <%- include ('../layout/footer')-%>

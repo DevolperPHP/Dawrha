@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Ubuntu&display=swap');
+
+*{
+    font-family: "Cairo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden!important;
+    direction: rtl;
+    height: 100%;
+}
+
+nav{
+    direction: rtl;
+    background-image: linear-gradient(30deg, #71f7a0, #20d3efc0);
+}
+
+
+
+nav img{
+    width: 50px;
+}
+
+.inline{
+    display: flex;
+}
+.sign-up{
+    position: relative;
+    overflow: hidden;
+    height: 110%;
+}
+
+.sign-up .wave{
+    position: absolute;
+    bottom:-20px;
+    opacity: 1;
+    transform: rotate(-30deg) scale(2.5);
+    z-index: 1;
+}
+
+.sign-up .earth-svg{
+    position: absolute;
+    bottom:-30px;
+    width: 350px;
+    z-index: 2;
+    right: -60px;
+    opacity: 0.85;
+}
+
+.sign-up .sign-card{
+    position: relative;
+        width: 350px;
+        height: 500px;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 20px;
+    z-index: 5;
+    }
+
+.sign-up .sign-card img{
+    width:200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    animation: spin 10s linear infinite; 
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+.sign-up .sign-card .title{
+    text-align: center;
+    color: #000000;
+    font-size: 30px;
+    font-weight: bold
+}
+
+.sign-up .inputs{
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sign-up .inputs input{
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    width: 90%;
+    background-color: #00000000;
+}
+
+.sign-up .inputs label{
+    font-size: 20px;
+}
+
+.sign-up .inputs button{
+    margin-top: 20px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    background-image: linear-gradient(30deg, #71f7a0, #20d3efc0);
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.sign-up form{
+    display: grid;
+}
+
+.sign-up .inputs button .icon{
+    transform: rotate(60deg);
+}
+
+.icon{
+    margin-bottom: -6px!important;
+}
+
+.icon-small{
+    margin-bottom: -2px!important;
+}
+
+.sign-in{
+    position: relative;
+    height: 100%;
+}
+
+.sign-in .sign-card{
+    width: 100%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    position: relative;
+z-index: 5;
+}
+
+.sign-in .story-svg{
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    width: 500px;
+    right: -13%;
+opacity: 0.5;
+}
+
+.sign-in .wave{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    transform: scale(1);
+    z-index: 1;
+}
+
+.sign-in .sign-card img{
+    width:200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    animation: spin 10s linear infinite; 
+}
+
+.sign-in .sign-card .title{
+    text-align: center;
+    color: #000000;
+    font-size: 30px;
+    font-weight: bold
+}
+
+.sign-in .inputs{
+    display: grid;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.sign-in .inputs input{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    background-color: #00000000;
+}
+
+.sign-in .inputs label{
+    font-size: 20px;
+}
+
+.sign-in .inputs button{
+    margin-top: 40px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    background-image: linear-gradient(30deg, #71f7a0, #20d3efc0);
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.sign-in .inputs a{
+    color: #71f7a0;
+    position: absolute;
+    text-shadow: 2px 2px 5px #0000002c;
+    font-size: 20px;
+    left: 30px;
+    top: 380px;
+    text-decoration: none;
+}
+
+.admin-category .title{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    border-bottom: 2px solid #71f7a0;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin-category .add{
+    background-image: linear-gradient(30deg, #71f7a0, #20d3efc0);
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    margin-right: 10px;
+}
+
+.admin-category table{
+    text-align: center;
+}
+
+.admin-products .title{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    border-bottom: 2px solid #71f7a0;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin-products .add{
+    background-image: linear-gradient(30deg, #71f7a0, #20d3efc0);
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    margin-right: 10px;
+}
+
+.admin-products table{
+    text-align: center;
+}
+
+.score-page img{
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: spin 10s linear infinite; 
+}
+
+.score-page .title{
+    text-align: center;
+    font-size: 30px;
+}
+
+.score-page .des span{
+    color: #71f7a0;
+}
+
+.score-page .des p{
+    text-align: center;
+    font-size: 18px;
+}
+
+.score-page .earth{
+    position: absolute;
+    width: 400px;
+    z-index: 2;
+}
+
+.score-page .wave{
+    position: absolute;
+    bottom: -10px;
+    width: 100%;
+    z-index: 1;
+}
+
+.home .score{
+    margin-right: 10px;
+    margin-top: -10px;
+    background-image: linear-gradient(30deg, #71f7a0, #20d3efc0);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 10;
+}
+
+.home .category{
+    margin-top: 40px;
+}
+
+.home .card{
+    width:150px;
+    position: relative;
+}
+
+.home .card-text{
+    font-size: 14px;
+}
+
+.home .title{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 200px;
+    border-bottom: 1px solid #71f7a0;
+    font-size: 25px;
+    margin-top: 40px;
+}
+
+.home .category{
+    background-color: #ffffff40;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00000032;
+    border-style: solid;
+    border-color: #71f7a046;
+}
+
+.home .cat-title{
+    font-size: 20px;
+    text-align: center;
+}
+
+.home .card{
+    width: 150px;
+    text-align: center;
+    height: 280px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.home .cards{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.home .price {
+    position: absolute;
+    left: 40%;
+    bottom: 0px;
+    color: #08d14e;
+}
+
+.history .title{
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid #71f7a0;
+    width: 200px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.history .history-card {
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    background-color: #d6d6d691;
+    padding: 10px 0px 10px 0px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #00000032;
+    display: flex;
+}
+
+.history .history-card img{
+    width: 100px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.history .history-card .info{
+    margin-right: 20px;
+}
